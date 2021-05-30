@@ -1,5 +1,3 @@
-import member.Member;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -17,9 +15,6 @@ public class Application {
 
 		// code
 		try {
-//			insertMember(entityManager);
-//			findMember(entityManager);
-			updateMember(entityManager);
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
@@ -28,23 +23,5 @@ public class Application {
 		}
 
 		entityManagerFactory.close();
-	}
-
-	private static void insertMember(final EntityManager entityManager){
-		Member member = new Member();
-		member.setId(1);
-		member.setName("joojimin");
-
-		entityManager.persist(member);
-	}
-
-	private static void findMember(final EntityManager entityManager){
-		Member member = entityManager.find(Member.class, 1);
-		System.out.println(member.getId() + " : " + member.getName());
-	}
-
-	private static void updateMember(final EntityManager entityManager){
-		Member member = entityManager.find(Member.class, 1);
-		member.setName("joooooooooooo");
 	}
 }
