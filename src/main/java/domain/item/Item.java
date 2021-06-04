@@ -1,10 +1,14 @@
 package domain.item;
 
+import domain.BaseEntity;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "ITEM")
-public class Item {
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn
+public class Item extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

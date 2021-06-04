@@ -16,6 +16,7 @@ public class Category {
 	@JoinColumn(name = "PARENT_ID")
 	private Category category;
 
+	@Column(name = "NAME")
 	private String name;
 
 	@ManyToMany
