@@ -28,7 +28,7 @@ public class Member {
 	@Column(name = "ZIPCODE")
 	private String zipCode;
 
-	@OneToMany(mappedBy = "member")
+	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
 	private List<Order> order = new ArrayList<>();
 
 	protected Member() {

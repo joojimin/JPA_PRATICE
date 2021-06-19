@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 @Entity
 @Table(name = "ORDERS")
@@ -46,5 +47,16 @@ public class Order {
 
 	public void setMember(Member member) {
 		this.member = member;
+	}
+
+	@Override
+	public String toString() {
+		return new StringJoiner(", ", Order.class.getSimpleName() + "[", "]")
+			.add("id=" + id)
+			.add("member=" + member)
+			.add("delivery=" + delivery)
+			.add("orderDate=" + orderDate)
+			.add("status=" + status)
+			.toString();
 	}
 }
